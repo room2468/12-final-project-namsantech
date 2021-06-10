@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:final_project/pages/SignInPage.dart';
+import 'package:final_project/widgets/PopularFoodsWidget.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -23,18 +26,17 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(
                 Icons.notifications_none,
                 color: Color(0xFF3a3737),
-              ),
-              )
-        ],
+              ),    
+          )
+          ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-           
+            PopularFoodsWidget(),
           ],
         ),
       ),
-      
     );
   }
 }
