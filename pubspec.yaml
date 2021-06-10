@@ -29,9 +29,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   carousel_pro: ^1.0.0
   font_awesome_flutter: 8.8.1
-  firebase_auth: ^0.20.1
-  firebase_core: ^0.7.0
-  google_sign_in: ^4.5.3 
+  firebase_auth: any # new
+  google_sign_in: any # new
+  firebase_core: any
+  cloud_firestore: any
 
 dev_dependencies:
   flutter_test:
