@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:final_project/widgets/PopularFoodsWidget.dart';
 import 'package:final_project/animasi/ScaleRoute.dart';
-import 'LogInPage.dart';
+import 'package:final_project/pages/LogInPage.dart';
+import 'package:final_project/widgets/PopularFoodsWidget.dart';
+import 'package:final_project/widgets/SearchWidget.dart';
+import 'package:final_project/widgets/TopMenus.dart';
+import 'package:final_project/widgets/BottomNavBarWidget.dart';
+import 'package:final_project/widgets/BestFoodWidget.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -27,18 +32,20 @@ class _HomePageState extends State<HomePage> {
                 Icons.notifications_none,
                 color: Color(0xFF3a3737),
               ),
-              onPressed: () {Navigator.push(context, ScaleRoute(page: SignInPage()));}
-              )
+              onPressed: () {Navigator.push(context, ScaleRoute(page: SignInPage()));})
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-           
+            SearchWidget(),
+            TopMenus(),
+            PopularFoodsWidget(),
+            BestFoodWidget(),
           ],
         ),
       ),
-      
+      bottomNavigationBar: BottomNavBarWidget(),
     );
   }
 }
