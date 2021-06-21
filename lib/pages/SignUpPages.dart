@@ -1,7 +1,16 @@
+import 'package:final_project/pages/HomePage.dart';
+import 'package:final_project/pages/SignInPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
+  @override
+  _SignUpPageState createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';
@@ -105,6 +114,7 @@ class SignUpPage extends StatelessWidget {
                     height: 15,
                   ),
                   TextField(
+                    controller: email,
                     showCursor: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -125,13 +135,14 @@ class SignUpPage extends StatelessWidget {
                           color: Color(0xFF666666),
                           fontFamily: defaultFontFamily,
                           fontSize: defaultFontSize),
-                      hintText: "Phone Number",
+                      hintText: "Email",
                     ),
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   TextField(
+                    controller: password,
                     showCursor: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -153,37 +164,58 @@ class SignUpPage extends StatelessWidget {
                         fontFamily: defaultFontFamily,
                         fontSize: defaultFontSize,
                       ),
-                      hintText: "Invitation Code",
+                      hintText: "password",
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Container(
-                      width: double.infinity,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.info_outline,
-                            color: Color(0xFF666666),
-                            size: defaultIconSize,
-                          ),
-                          Text(
-                            " Leave empty if you don't have Invitation Code",
-                            style: TextStyle(
-                              color: Color(0xFF666666),
-                              fontFamily: defaultFontFamily,
-                              fontSize: defaultFontSize,
-                              fontStyle: FontStyle.normal,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ],
-                      )),
+                    width: double.infinity,
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Color(0xFFfbab66),
+                        ),
+                        BoxShadow(
+                          color: Color(0xFFf7418c),
+                        ),
+                      ],
+                      gradient: new LinearGradient(
+                          colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
+                          begin: const FractionalOffset(0.2, 0.2),
+                          end: const FractionalOffset(1.0, 1.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
+                    child: MaterialButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Color(0xFFf7418c),
+                      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 42.0),
+                        child: Text(
+                          "SIGN UP",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25.0,
+                              fontFamily: "WorkSansBold"),
+                        ),
+                      ),
+                      onPressed: () async {
+                        signUp(email.text, password.text).then((result) {
+                          if (result != null) {
+                            Navigator.pop(context);
+                          }
+                        });
+                      },
+                    ),
+                  ),
                   SizedBox(
                     height: 15,
                   ),
-                  SignInButtonWidget(),
                   SizedBox(
                     height: 10,
                   ),
@@ -211,9 +243,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {
-                        
-                      },
+                      onTap: () {},
                       child: Container(
                         child: Text(
                           "Sign In",
@@ -226,6 +256,49 @@ class SignUpPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Container(
+                      width: double.infinity,
+                      decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: Color(0xFFfbab66),
+                          ),
+                          BoxShadow(
+                            color: Color(0xFFf7418c),
+                          ),
+                        ],
+                        gradient: new LinearGradient(
+                            colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
+                            begin: const FractionalOffset(0.2, 0.2),
+                            end: const FractionalOffset(1.0, 1.0),
+                            stops: [0.0, 1.0],
+                            tileMode: TileMode.clamp),
+                      ),
+                      child: MaterialButton(
+                        highlightColor: Colors.transparent,
+                        splashColor: Color(0xFFf7418c),
+                        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 42.0),
+                          child: Text(
+                            "SIGN UP",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25.0,
+                                fontFamily: "WorkSansBold"),
+                          ),
+                        ),
+                        onPressed: () async {
+                          signUp(email.text, password.text).then((result) {
+                            if (result != null) {
+                              Navigator.pop(context);
+                            }
+                          });
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -233,48 +306,6 @@ class SignUpPage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class SignInButtonWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: new BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Color(0xFFfbab66),
-          ),
-          BoxShadow(
-            color: Color(0xFFf7418c),
-          ),
-        ],
-        gradient: new LinearGradient(
-            colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
-            begin: const FractionalOffset(0.2, 0.2),
-            end: const FractionalOffset(1.0, 1.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
-      child: MaterialButton(
-          highlightColor: Colors.transparent,
-          splashColor: Color(0xFFf7418c),
-          //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 42.0),
-            child: Text(
-              "SIGN UP",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                  fontFamily: "WorkSansBold"),
-            ),
-          ),
-          onPressed: () => {}),
     );
   }
 }
