@@ -12,6 +12,8 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';
@@ -57,6 +59,7 @@ class _SignInPageState extends State<SignInPage> {
                     height: 15,
                   ),
                   TextField(
+                    controller: email,
                     showCursor: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -77,13 +80,14 @@ class _SignInPageState extends State<SignInPage> {
                           color: Color(0xFF666666),
                           fontFamily: defaultFontFamily,
                           fontSize: defaultFontSize),
-                      hintText: "Phone Number",
+                      hintText: "Email",
                     ),
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   TextField(
+                    controller: password,
                     showCursor: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -132,7 +136,60 @@ class _SignInPageState extends State<SignInPage> {
                   SizedBox(
                     height: 15,
                   ),
-                  SignInButtonWidget(),
+                  Container(
+                    width: double.infinity,
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Color(0xFFfbab66),
+                        ),
+                        BoxShadow(
+                          color: Color(0xFFf7418c),
+                        ),
+                      ],
+                      gradient: new LinearGradient(
+                          colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
+                          begin: const FractionalOffset(0.2, 0.2),
+                          end: const FractionalOffset(1.0, 1.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
+                    child: MaterialButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Color(0xFFf7418c),
+                      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 42.0),
+                        child: Text(
+                          "SIGN IN",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25.0,
+                              fontFamily: "WorkSansBold"),
+                        ),
+                      ),
+                      onPressed: () async {
+                        signIn(email.text, password.text).then((result) {
+                          if (result != null) {
+                            String email = result.email;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomePage(
+                                  user: email,
+                                ),
+                              ),
+                            );
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
                   SizedBox(
                     height: 2,
                   ),
@@ -161,7 +218,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     InkWell(
                       onTap: () => {
-                      Navigator.push(context, ScaleRoute(page: SignUpPage()))
+                        Navigator.push(context, ScaleRoute(page: SignUpPage()))
                       },
                       child: Container(
                         child: Text(
@@ -182,48 +239,6 @@ class _SignInPageState extends State<SignInPage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class SignInButtonWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: new BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Color(0xFFfbab66),
-          ),
-          BoxShadow(
-            color: Color(0xFFf7418c),
-          ),
-        ],
-        gradient: new LinearGradient(
-            colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
-            begin: const FractionalOffset(0.2, 0.2),
-            end: const FractionalOffset(1.0, 1.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
-      child: MaterialButton(
-          highlightColor: Colors.transparent,
-          splashColor: Color(0xFFf7418c),
-          //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 42.0),
-            child: Text(
-              "SIGN IN",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                  fontFamily: "WorkSansBold"),
-            ),
-          ),
-          onPressed: () => {}),
     );
   }
 }
@@ -308,15 +323,15 @@ class FacebookGoogleLogin extends StatelessWidget {
                 onTap: () => {
                   signInWithGoogle().then((result) {
                     if (result != null) {
-                    Navigator.of(context).push(
-                    MaterialPageRoute(
-                    builder: (context) {
-                    return HomePage();
-                              },
-                          ),
-                        );
-                      }
-                    })
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return HomePage();
+                          },
+                        ),
+                      );
+                    }
+                  })
                 },
                 child: Container(
                   padding: const EdgeInsets.all(15.0),
