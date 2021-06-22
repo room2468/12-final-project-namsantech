@@ -1,7 +1,7 @@
 import 'package:final_project/pages/LoginPage.dart';
+import 'package:final_project/pages/maps.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Roboto', hintColor: Color(0xFFd0cece)),
-      home: SignInPage(), 
-    ); 
+      home: SignInPage(),
+    );
   }
 }
