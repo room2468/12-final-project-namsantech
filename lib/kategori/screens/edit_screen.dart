@@ -9,7 +9,7 @@ class EditScreen extends StatefulWidget {
 
   EditScreen({
     this.currentKode,
-    this.currentKateg\ori,
+    this.currentKategori,
     this.documentId,
   });
 
