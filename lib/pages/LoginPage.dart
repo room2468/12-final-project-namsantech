@@ -1,3 +1,5 @@
+import 'package:final_project/pages/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:final_project/animasi/ScaleRoute.dart';
@@ -321,17 +323,19 @@ class FacebookGoogleLogin extends StatelessWidget {
               padding: EdgeInsets.only(top: 10.0),
               child: GestureDetector(
                 onTap: () => {
-                  signInWithGoogle().then((result) {
-                    if (result != null) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return HomePage();
-                          },
-                        ),
-                      );
-                    }
-                  })
+                  //Sign In with google
+                  AuthClass().signWithGoogle().then(
+                    (UserCredential value) {
+                      final displayName = value.user.displayName;
+
+                      print(displayName);
+
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                          (route) => false);
+                    },
+                  ),
                 },
                 child: Container(
                   padding: const EdgeInsets.all(15.0),
