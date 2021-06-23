@@ -13,20 +13,32 @@ class BottomNavBarWidget extends StatefulWidget {
 
 class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
   List<Widget> _listTab;
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+//        navigateToScreens(index);
+    });
+  }
+
+  void initState() {
+    super.initState();
+    _listTab = [HomePage(widget.user), Maps()];
+  }
+
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex = 0;
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-//        navigateToScreens(index);
-      });
-    }
-
-    void initState() {
-      super.initState();
-      _listTab = [HomePage(widget.user), Maps()];
-    }
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 20),
+            child: _listTab[_selectedIndex],
+          )
+        ],
+      ),
+    );
 
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
@@ -45,20 +57,20 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             style: TextStyle(color: Color(0xFF2c2b2b)),
           ),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.card_giftcard),
-          title: Text(
-            'Favorite',
-            style: TextStyle(color: Color(0xFF2c2b2b)),
-          ),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(FontAwesomeIcons.user),
-          title: Text(
-            'Account',
-            style: TextStyle(color: Color(0xFF2c2b2b)),
-          ),
-        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(Icons.card_giftcard),
+        //   title: Text(
+        //     'Favorite',
+        //     style: TextStyle(color: Color(0xFF2c2b2b)),
+        //   ),
+        // ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(FontAwesomeIcons.user),
+        //   title: Text(
+        //     'Account',
+        //     style: TextStyle(color: Color(0xFF2c2b2b)),
+        //   ),
+        // ),
       ],
       currentIndex: _selectedIndex,
       selectedItemColor: Color(0xFFfd5352),
