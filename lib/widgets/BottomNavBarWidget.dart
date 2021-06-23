@@ -1,4 +1,5 @@
 import 'package:final_project/pages/HomePage.dart';
+import 'package:final_project/pages/ViewResep.dart';
 import 'package:final_project/pages/maps.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
 
   void initState() {
     super.initState();
-    _listTab = [HomePage(widget.user), Maps()];
+    _listTab = [HomePage(widget.user), Maps(), VResep()];
   }
 
   @override
@@ -36,25 +37,41 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
         currentIndex: _selectedIndex,
         items: [
           new BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.amberAccent,),
-            title: Text("home", style: TextStyle(color: Colors.black),),
+            icon: Icon(
+              Icons.home,
+              color: Colors.amberAccent,
+            ),
+            title: Text(
+              "home",
+              style: TextStyle(color: Colors.black),
+            ),
           ),
           new BottomNavigationBarItem(
-            icon: Icon(Icons.near_me, color: Colors.amberAccent,),
-            title: Text("Offline Store", style: TextStyle(color: Colors.black),),
+            icon: Icon(
+              Icons.near_me,
+              color: Colors.amberAccent,
+            ),
+            title: Text(
+              "Offline Store",
+              style: TextStyle(color: Colors.black),
+            ),
           ),
           new BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.amberAccent,),
-            title: Text("Favorit", style: TextStyle(color: Colors.black),),
+            icon: Icon(
+              Icons.home,
+              color: Colors.amberAccent,
+            ),
+            title: Text(
+              "Favorit",
+              style: TextStyle(color: Colors.black),
+            ),
           ),
           new BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text("home"),
+            title: Text("Account"),
           ),
         ],
       ),
     );
-
-   
   }
 }
