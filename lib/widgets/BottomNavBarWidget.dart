@@ -1,6 +1,7 @@
 import 'package:final_project/pages/HomePage.dart';
 import 'package:final_project/pages/ViewResep.dart';
 import 'package:final_project/pages/maps.dart';
+import 'package:final_project/pages/profile_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,7 +26,12 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
 
   void initState() {
     super.initState();
-    _listTab = [HomePage(widget.user), Maps(), VResep()];
+    _listTab = [
+      HomePage(widget.user),
+      Maps(),
+      VResep(),
+      ProfilePage()
+    ];
   }
 
   @override
@@ -58,7 +64,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
           ),
           new BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.favorite,
               color: Colors.amberAccent,
             ),
             title: Text(
@@ -67,8 +73,12 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             ),
           ),
           new BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text("Account"),
+            icon: Icon(
+              Icons.person,
+              color: Colors.amberAccent,
+            ),
+            title: Text("Account",
+            style: TextStyle(color: Colors.black),),
           ),
         ],
       ),
