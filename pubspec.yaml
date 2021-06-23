@@ -41,6 +41,7 @@ dependencies:
   permission: ^0.1.7
   floor: any
   like_button: ^1.0.4
+  animated_theme_switcher: ^1.0.8
 
 dev_dependencies:
   flutter_test:
