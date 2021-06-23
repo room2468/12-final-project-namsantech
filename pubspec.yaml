@@ -37,7 +37,8 @@ dependencies:
   firebase: any
   dio: ^3.0.9
   flutter_polyline_points: ^0.2.3
-  google_maps_flutter: ^1.1.1
+  google_maps_flutter: ^1.0.5
+  permission: ^0.1.7
 
 dev_dependencies:
   flutter_test:
