@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:final_project/kategori/widgets/add_item_form.dart';
 
 class AddScreen extends StatelessWidget {
-  final FocusNode _kodeFocusNode = FocusNode();
-  final FocusNode _kategoriFocusNode = FocusNode();
+  final FocusNode _nameFocusNode = FocusNode();
+  final FocusNode _imageFocusNode = FocusNode();
+  final FocusNode _ratingFocusNode = FocusNode();
+  final FocusNode _nofratingFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _kodeFocusNode.unfocus();
-        _kategoriFocusNode.unfocus();
+        _nameFocusNode.unfocus();
+        _imageFocusNode.unfocus();
+        _ratingFocusNode.unfocus();
+        _nofratingFocusNode.unfocus();
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Kategori'),
+          title: Text('Name'),
           backgroundColor: Colors.teal[500],
         ),
         body: Container(
@@ -32,8 +36,10 @@ class AddScreen extends StatelessWidget {
               bottom: 20.0,
             ),
             child: AddItemForm(
-              kodeFocusNode: _kodeFocusNode,
-              kategoriFocusNode: _kategoriFocusNode,
+              nameFocusNode: _nameFocusNode,
+              imageFocusNode: _imageFocusNode,
+              ratingFocusNode: _ratingFocusNode,
+              nofratingFocusNode: _nofratingFocusNode,
             ),
           ),
         ),
