@@ -1,4 +1,5 @@
 import 'package:final_project/pages/auth.dart';
+import 'package:final_project/widgets/BottomNavBarWidget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -175,13 +176,10 @@ class _SignInPageState extends State<SignInPage> {
                       onPressed: () async {
                         signIn(email.text, password.text).then((result) {
                           if (result != null) {
-                            String email = result.email;
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomePage(
-                                  user: email,
-                                ),
+                                builder: (context) => BottomNavBarWidget(),
                               ),
                             );
                           }
