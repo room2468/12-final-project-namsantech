@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:final_project/kategori/utils/database.dart';
 
 class AddItemForm extends StatefulWidget {
-  final FocusNode kodeFocusNode;
-  final FocusNode kategoriFocusNode;
+  final FocusNode nameFocusNode;
+  final FocusNode imageFocusNode;
+  final FocusNode ratingFocusNode;
+  final FocusNode nofratingFocusNode;
 
   const AddItemForm({
-    this.kodeFocusNode,
-    this.kategoriFocusNode,
+    this.nameFocusNode,
+    this.imageFocusNode,
+    this.ratingFocusNode,
+    this.nofratingFocusNode,
   });
 
   @override
@@ -19,8 +23,10 @@ class _AddItemFormState extends State<AddItemForm> {
 
   bool _isProcessing = false;
 
-  final TextEditingController _kodeController = TextEditingController();
-  final TextEditingController _kategoriController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _imageController = TextEditingController();
+  final TextEditingController _ratingController = TextEditingController();
+  final TextEditingController _nofratingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +43,10 @@ class _AddItemFormState extends State<AddItemForm> {
                 Padding(
                   padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                   child: TextField(
-                    controller: _kodeController,
+                    controller: _nameController,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      labelText: 'Kode Kategori',
+                      labelText: 'Name',
                       labelStyle:
                           new TextStyle(color: Colors.black54, fontSize: 16.0),
                       border: OutlineInputBorder(
@@ -55,10 +61,46 @@ class _AddItemFormState extends State<AddItemForm> {
                 Padding(
                   padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                   child: TextField(
-                    controller: _kategoriController,
+                    controller: _imageController,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      labelText: 'Nama Kategori',
+                      labelText: 'Image',
+                      labelStyle:
+                          new TextStyle(color: Colors.black54, fontSize: 16.0),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onChanged: (value) {
+                      //
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                  child: TextField(
+                    controller: _ratingController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      labelText: 'Rating',
+                      labelStyle:
+                          new TextStyle(color: Colors.black54, fontSize: 16.0),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onChanged: (value) {
+                      //
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                  child: TextField(
+                    controller: _nofratingController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      labelText: 'Number of Rating',
                       labelStyle:
                           new TextStyle(color: Colors.black54, fontSize: 16.0),
                       border: OutlineInputBorder(
@@ -88,8 +130,10 @@ class _AddItemFormState extends State<AddItemForm> {
                     color: Colors.teal[600],
                     textColor: Theme.of(context).primaryColorLight,
                     onPressed: () async {
-                      widget.kodeFocusNode.unfocus();
-                      widget.kategoriFocusNode.unfocus();
+                      widget.nameFocusNode.unfocus();
+                      widget.imageFocusNode.unfocus();
+                      widget.ratingFocusNode.unfocus();
+                      widget.nofratingFocusNode.unfocus();
 
                       if (_addItemFormKey.currentState.validate()) {
                         setState(() {
@@ -97,8 +141,10 @@ class _AddItemFormState extends State<AddItemForm> {
                         });
 
                         await DatabaseKategori.addItem(
-                          kode: _kodeController.text,
-                          kategori: _kategoriController.text,
+                          name : _nameController.text,
+                          imageUrl: _imageController.text,
+                          rating: _ratingController.text,
+                          numberOfRating: _nofratingController.text
                         );
 
                         setState(() {

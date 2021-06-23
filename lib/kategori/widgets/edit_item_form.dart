@@ -116,8 +116,8 @@ class _EditItemFormState extends State<EditItemForm> {
 
                         await DatabaseKategori.updateItem(
                           docId: widget.documentId,
-                          kode: _kodeController.text,
-                          kategori: _kategoriController.text,
+                          name: _kodeController.text,
+                          imageUrl: _kategoriController.text,
                         );
 
                         setState(() {
