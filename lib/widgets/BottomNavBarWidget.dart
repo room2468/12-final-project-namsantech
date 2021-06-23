@@ -30,51 +30,31 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 20),
-            child: _listTab[_selectedIndex],
-          )
+      body: _listTab[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
+        items: [
+          new BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.amberAccent,),
+            title: Text("home", style: TextStyle(color: Colors.black),),
+          ),
+          new BottomNavigationBarItem(
+            icon: Icon(Icons.near_me, color: Colors.amberAccent,),
+            title: Text("Offline Store", style: TextStyle(color: Colors.black),),
+          ),
+          new BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.amberAccent,),
+            title: Text("Favorit", style: TextStyle(color: Colors.black),),
+          ),
+          new BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text("home"),
+          ),
         ],
       ),
     );
 
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text(
-            'Home',
-            style: TextStyle(color: Color(0xFF2c2b2b)),
-          ),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.near_me),
-          title: Text(
-            'Store',
-            style: TextStyle(color: Color(0xFF2c2b2b)),
-          ),
-        ),
-        // BottomNavigationBarItem(
-        //   icon: Icon(Icons.card_giftcard),
-        //   title: Text(
-        //     'Favorite',
-        //     style: TextStyle(color: Color(0xFF2c2b2b)),
-        //   ),
-        // ),
-        // BottomNavigationBarItem(
-        //   icon: Icon(FontAwesomeIcons.user),
-        //   title: Text(
-        //     'Account',
-        //     style: TextStyle(color: Color(0xFF2c2b2b)),
-        //   ),
-        // ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Color(0xFFfd5352),
-      onTap: _onItemTapped,
-    );
+   
   }
 }
