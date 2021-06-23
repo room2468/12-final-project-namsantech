@@ -9,7 +9,8 @@ import 'package:final_project/widgets/SearchWidget.dart';
 import 'package:final_project/widgets/TopMenus.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({user});
+  final User user;
+  HomePage([this.user]);
   @override
   _HomePageState createState() => _HomePageState();
 }
