@@ -1,6 +1,4 @@
 import 'package:final_project/pages/LoginPage.dart';
-import 'package:final_project/pages/maps.dart';
-import 'package:final_project/widgets/BottomNavBarWidget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

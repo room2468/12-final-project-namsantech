@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:final_project/animasi/ScaleRoute.dart';
-import 'HomePage.dart';
 import 'SignUpPages.dart';
 import 'SignInPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -29,7 +28,7 @@ class _SignInPageState extends State<SignInPage> {
         width: double.infinity,
         height: double.infinity,
         color: Colors.white70,
-        child: Column(
+        child: ListView(
           children: <Widget>[
             Flexible(
               flex: 1,
