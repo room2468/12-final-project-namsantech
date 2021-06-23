@@ -332,7 +332,7 @@ class FacebookGoogleLogin extends StatelessWidget {
 
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
+                          MaterialPageRoute(builder: (context) => BottomNavBarWidget()),
                           (route) => false);
                     },
                   ),
