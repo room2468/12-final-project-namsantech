@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                Icons.notifications_none,
+                Icons.logout,
                 color: Color(0xFF3a3737),
               ),
               onPressed: () {
