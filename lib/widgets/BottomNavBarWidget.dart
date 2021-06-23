@@ -1,14 +1,18 @@
+import 'package:final_project/pages/HomePage.dart';
+import 'package:final_project/pages/maps.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
+  final User user;
+  BottomNavBarWidget({this.user});
   @override
   _BottomNavBarWidgetState createState() => _BottomNavBarWidgetState();
 }
 
 class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
-
-  List <Widget> _listTab;
+  List<Widget> _listTab;
   @override
   Widget build(BuildContext context) {
     int _selectedIndex = 0;
@@ -21,10 +25,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
 
     void initState() {
       super.initState();
-      _listTab = [
-        HomePage();
-        MapScreen();
-      ];
+      _listTab = [HomePage(widget.user), Maps()];
     }
 
     return BottomNavigationBar(
