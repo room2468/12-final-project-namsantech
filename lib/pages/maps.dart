@@ -1,21 +1,21 @@
 import 'package:final_project/pages/google_map_screen.dart';
 import 'package:flutter/material.dart';
 
-class MapScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomePage(),
-    );
-  }
-}
+// class MapScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.indigo,
+//         visualDensity: VisualDensity.adaptivePlatformDensity,
+//       ),
+//       home: Map(),
+//     );
+//   }
+// }
 
-class HomePage extends StatelessWidget {
+class Maps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
