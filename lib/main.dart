@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Roboto', hintColor: Color(0xFFd0cece)),
-      home: BottomNavBarWidget(),
+      home:SignInPage(),
     );
   }
 }
