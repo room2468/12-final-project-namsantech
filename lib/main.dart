@@ -1,4 +1,5 @@
 import 'package:final_project/pages/LoginPage.dart';
+import 'package:final_project/pages/ViewResep.dart';
 import 'package:final_project/pages/maps.dart';
 import 'package:final_project/widgets/BottomNavBarWidget.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Roboto', hintColor: Color(0xFFd0cece)),
-      home:SignInPage(),
+      home: SignInPage(),
     );
   }
 }
