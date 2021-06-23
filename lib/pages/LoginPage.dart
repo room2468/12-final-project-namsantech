@@ -179,7 +179,9 @@ class _SignInPageState extends State<SignInPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => BottomNavBarWidget(),
+                                builder: (context) => BottomNavBarWidget(
+                                  user: result,
+                                ),
                               ),
                             );
                           }
