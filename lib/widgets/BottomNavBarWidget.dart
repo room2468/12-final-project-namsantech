@@ -7,6 +7,8 @@ class BottomNavBarWidget extends StatefulWidget {
 }
 
 class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
+
+  List <Widget> _listTab;
   @override
   Widget build(BuildContext context) {
     int _selectedIndex = 0;
@@ -15,6 +17,14 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
         _selectedIndex = index;
 //        navigateToScreens(index);
       });
+    }
+
+    void initState() {
+      super.initState();
+      _listTab = [
+        HomePage();
+        MapScreen();
+      ];
     }
 
     return BottomNavigationBar(
@@ -30,14 +40,14 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
         BottomNavigationBarItem(
           icon: Icon(Icons.near_me),
           title: Text(
-            'Near By',
+            'Store',
             style: TextStyle(color: Color(0xFF2c2b2b)),
           ),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.card_giftcard),
           title: Text(
-            'Cart',
+            'Favorite',
             style: TextStyle(color: Color(0xFF2c2b2b)),
           ),
         ),
