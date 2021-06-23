@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:final_project/animasi/ScaleRoute.dart';
 import 'package:final_project/widgets/BestFoodWidget.dart';
-import 'package:final_project/widgets/BottomNavBarWidget.dart';
 import 'package:final_project/widgets/PopularFoodsWidget.dart';
 import 'package:final_project/widgets/SearchWidget.dart';
 import 'package:final_project/widgets/TopMenus.dart';

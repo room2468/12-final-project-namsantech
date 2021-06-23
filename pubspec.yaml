@@ -46,8 +46,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  floor_generator: any
-  build_runner: any
     
 
 # For information on the generic Dart part of this file, see the
@@ -99,7 +97,6 @@ flutter:
     - assets/images/bestfood/ic_best_food_8.jpeg
     - assets/images/bestfood/ic_best_food_9.jpeg
     - assets/images/bestfood/ic_best_food_10.jpeg
-    - assets/data/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

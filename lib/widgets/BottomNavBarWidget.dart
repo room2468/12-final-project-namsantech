@@ -4,7 +4,6 @@ import 'package:final_project/pages/maps.dart';
 import 'package:final_project/pages/profile_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
   final User user;
@@ -26,12 +25,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
 
   void initState() {
     super.initState();
-    _listTab = [
-      HomePage(widget.user),
-      Maps(),
-      VResep(),
-      ProfilePage()
-    ];
+    _listTab = [HomePage(widget.user), Maps(), VResep(), ProfilePage()];
   }
 
   @override
@@ -77,8 +71,10 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
               Icons.person,
               color: Colors.amberAccent,
             ),
-            title: Text("Account",
-            style: TextStyle(color: Colors.black),),
+            title: Text(
+              "Account",
+              style: TextStyle(color: Colors.black),
+            ),
           ),
         ],
       ),
