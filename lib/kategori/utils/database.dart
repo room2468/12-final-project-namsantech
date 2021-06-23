@@ -9,6 +9,12 @@ class DatabaseKategori {
   static Future<void> addItem({
     String kode,
     String kategori,
+    String name,
+    String imageUrl,
+    String rating,
+    String numberOfRating,
+    String price,
+    String slug
   }) async {
     DocumentReference documentReferencer = _mainCollection.doc(userUid);
 
