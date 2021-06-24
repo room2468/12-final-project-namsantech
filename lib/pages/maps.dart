@@ -1,6 +1,5 @@
-import 'package:final_project/pages/google_map_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:final_project/pages/heremap.dart';
 // class MapScreen extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class Maps extends StatelessWidget {
         onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => GoogleMapScreen(),
+              builder: (context) => HolaMap(),
             )),
         tooltip: 'Google Map',
         child: Icon(Icons.pin_drop_outlined),
