@@ -26,7 +26,7 @@ class Maps extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Google Map',
+              'Find Me',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             )
           ],
