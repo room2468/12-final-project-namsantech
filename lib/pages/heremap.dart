@@ -49,11 +49,11 @@ class HolaMap extends StatelessWidget {
         return;
       }
     });
-    drawRedDot(hereMapController, 0, GeoCoordinates(-6.1753871, 106.8249588));
-    drawPin(hereMapController, 1, GeoCoordinates(-6.1753871, 106.8249588));
+    drawRedDot(hereMapController, 0, GeoCoordinates(-7.8738366, 112.524857));
+    drawPin(hereMapController, 1, GeoCoordinates(-7.8738366, 112.524857));
 
     double distanceToEarthInMeters = 8000;
     hereMapController.camera.lookAtPointWithDistance(
-        GeoCoordinates(-6.096860, 110.416779), distanceToEarthInMeters);
+        GeoCoordinates(-7.8738366, 112.524857), distanceToEarthInMeters);
   }
 }
