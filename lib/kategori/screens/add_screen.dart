@@ -4,6 +4,7 @@ import 'package:final_project/kategori/widgets/add_item_form.dart';
 class AddScreen extends StatelessWidget {
   final FocusNode _nameFocusNode = FocusNode();
   final FocusNode _imageFocusNode = FocusNode();
+  final FocusNode _descFocusNode = FocusNode();
   final FocusNode _ratingFocusNode = FocusNode();
   final FocusNode _nofratingFocusNode = FocusNode();
 
@@ -13,6 +14,7 @@ class AddScreen extends StatelessWidget {
       onTap: () {
         _nameFocusNode.unfocus();
         _imageFocusNode.unfocus();
+        _descFocusNode.unfocus();
         _ratingFocusNode.unfocus();
         _nofratingFocusNode.unfocus();
       },

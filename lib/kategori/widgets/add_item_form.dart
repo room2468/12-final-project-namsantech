@@ -1,15 +1,18 @@
+import 'package:final_project/pages/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:final_project/kategori/utils/database.dart';
 
 class AddItemForm extends StatefulWidget {
   final FocusNode nameFocusNode;
   final FocusNode imageFocusNode;
+  final FocusNode descFocusNode;
   final FocusNode ratingFocusNode;
   final FocusNode nofratingFocusNode;
 
   const AddItemForm({
     this.nameFocusNode,
     this.imageFocusNode,
+    this.descFocusNode,
     this.ratingFocusNode,
     this.nofratingFocusNode,
   });
@@ -25,6 +28,7 @@ class _AddItemFormState extends State<AddItemForm> {
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _imageController = TextEditingController();
+  final TextEditingController _descController = TextEditingController();
   final TextEditingController _ratingController = TextEditingController();
   final TextEditingController _nofratingController = TextEditingController();
 
@@ -65,6 +69,24 @@ class _AddItemFormState extends State<AddItemForm> {
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       labelText: 'Image',
+                      labelStyle:
+                          new TextStyle(color: Colors.black54, fontSize: 16.0),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onChanged: (value) {
+                      //
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                  child: TextField(
+                    controller: _descController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      labelText: 'Describe',
                       labelStyle:
                           new TextStyle(color: Colors.black54, fontSize: 16.0),
                       border: OutlineInputBorder(
@@ -132,6 +154,7 @@ class _AddItemFormState extends State<AddItemForm> {
                     onPressed: () async {
                       widget.nameFocusNode.unfocus();
                       widget.imageFocusNode.unfocus();
+                      widget.descFocusNode.unfocus();
                       widget.ratingFocusNode.unfocus();
                       widget.nofratingFocusNode.unfocus();
 
@@ -143,6 +166,7 @@ class _AddItemFormState extends State<AddItemForm> {
                         await DatabaseKategori.addItem(
                           name : _nameController.text,
                           imageUrl: _imageController.text,
+                          desc: _descController.text,
                           rating: _ratingController.text,
                           numberOfRating: _nofratingController.text
                         );
@@ -151,7 +175,7 @@ class _AddItemFormState extends State<AddItemForm> {
                           _isProcessing = false;
                         });
 
-                        Navigator.of(context).pop();
+                        Navigator.of(context).pop(HomePage());
                       }
                     },
                     child: Padding(

@@ -1,7 +1,10 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _mainCollection = _firestore.collection('Menu');
+
+
 
 class DatabaseKategori {
   static String userUid;
@@ -9,6 +12,7 @@ class DatabaseKategori {
   static Future<void> addItem({
     String name,
     String imageUrl,
+    String desc,
     String rating,
     String numberOfRating,
   }) async {
@@ -17,6 +21,7 @@ class DatabaseKategori {
     Map<String, dynamic> data = <String, dynamic>{
       "name": name,
       "imageUrl": imageUrl,
+      "desc": desc,
       "rating": rating,
       "numberofRating": numberOfRating
     };
@@ -30,6 +35,7 @@ class DatabaseKategori {
   static Future<void> updateItem({
     String name,
     String imageUrl,
+    String desc,
     String rating,
     String numberOfRating,
     String docId,
@@ -39,6 +45,7 @@ class DatabaseKategori {
     Map<String, dynamic> data = <String, dynamic>{
       "name": name,
       "imageUrl": imageUrl,
+      "desc": desc,
       "rating": rating,
       "numberofRating": numberOfRating
     };
