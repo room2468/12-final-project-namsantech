@@ -247,6 +247,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.2"
+  here_sdk:
+    dependency: "direct main"
+    description:
+      path: "plugin/here_sdk"
+      relative: true
+    source: path
+    version: "4.7.5"
   http:
     dependency: transitive
     description:

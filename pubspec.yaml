@@ -42,7 +42,11 @@ dependencies:
   floor: any
   like_button: ^1.0.4
   animated_theme_switcher: ^1.0.8
+  
 
+  here_sdk:
+    path: plugin/here_sdk
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -97,6 +101,9 @@ flutter:
     - assets/images/bestfood/ic_best_food_8.jpeg
     - assets/images/bestfood/ic_best_food_9.jpeg
     - assets/images/bestfood/ic_best_food_10.jpeg
+    - assets/
+    - assets/data/
+  
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

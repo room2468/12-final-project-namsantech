@@ -9,8 +9,10 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="final_project"
         android:icon="@mipmap/ic_launcher">
-         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyCWeUwpU64s-1Vh8G-kl4HPDb8Y2IYxyjA"/>
+        
+        <meta-data android:name="com.here.sdk.access_key_id" android:value="TBfvIpwnKUjQNr5ScluoIg"/>
+        <meta-data android:name="com.here.sdk.access_key_secret" android:value="Ua22iT2u09RJOs9fL_8jDfMs3wqgxH0trTTimzEjbOPnduRuJDUxHcsEPQHtHXcxyXuAuRp5UvEjsMXe2DIv4g"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

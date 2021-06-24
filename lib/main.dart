@@ -9,8 +9,11 @@ import 'package:final_project/widgets/BottomNavBarWidget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:here_sdk/core.dart';
+import 'pages/heremap.dart';
 
 Future main() async {
+  SdkContext.init(IsolateOrigin.main);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await SystemChrome.setPreferredOrientations([
