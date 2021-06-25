@@ -35,7 +35,7 @@ class _EditScreenState extends State<EditScreen> {
         //backgroundColor: CustomColors.firebaseNavy,
         appBar: AppBar(
           title: Text('Kategori'),
-          backgroundColor: Colors.teal[500],
+          backgroundColor: Colors.yellow[600],
           // backgroundColor: CustomColors.firebaseNavy,
           //title: AppBarTitle(),
           actions: [
@@ -82,7 +82,7 @@ class _EditScreenState extends State<EditScreen> {
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
-              colors: [Colors.teal[600], Colors.teal[200]],
+              colors: [Colors.yellow[600], Colors.white],
             ),
           ),
           child: Padding(
