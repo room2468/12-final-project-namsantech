@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:final_project/pages/favorite.dart';
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import 'resep.dart';

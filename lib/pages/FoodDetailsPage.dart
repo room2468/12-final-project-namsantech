@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:final_project/animasi/ScaleRoute.dart';
-import 'package:final_project/widgets/FoodDetailsSlider.dart';
 
 class FoodDetailsPage extends StatefulWidget {
   @override

@@ -9,8 +9,6 @@
 // software. In the absence of such agreement, the use of the software is not
 // allowed.
 //
-
-import 'dart:collection';
 import 'dart:ffi';
 import 'package:collection/collection.dart';
 import 'package:here_sdk/src/_library_context.dart' as __lib;
