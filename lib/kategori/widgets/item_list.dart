@@ -7,7 +7,7 @@ class ItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: DatabaseKategori.readItems(),
+      stream: DatabaseMenu.readItems(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Something went wrong');
@@ -18,8 +18,11 @@ class ItemList extends StatelessWidget {
             itemBuilder: (context, index) {
               var noteInfo = snapshot.data.docs[index].data();
               String docID = snapshot.data.docs[index].id;
-              String kode = noteInfo['kode'];
-              String kategori = noteInfo['kategori'];
+              String name = noteInfo['name'];
+              String imageurl = noteInfo['imageurl'];
+              String desc = noteInfo['desc'];
+              String rating = noteInfo['rating'];
+              String numberofRating = noteInfo['numberofRating'];
 
               return Card(
                 color: Colors.teal[400],
@@ -35,20 +38,23 @@ class ItemList extends StatelessWidget {
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => EditScreen(
-                        currentKode: kode,
-                        currentKategori: kategori,
+                        currentname: name,
+                        currentimageurl: imageurl,
+                        currentdesc: desc,
+                        currentrating: rating,
+                        currentnumberofRating: numberofRating,
                         documentId: docID,
                       ),
                     ),
                   ),
                   title: Text(
-                    kode,
+                    name,
                     // maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    kategori,
+                    desc,
                     //maxLines: 1,
                     style: TextStyle(
                       fontSize: 16,

@@ -163,7 +163,7 @@ class _AddItemFormState extends State<AddItemForm> {
                           _isProcessing = true;
                         });
 
-                        await DatabaseKategori.addItem(
+                        await DatabaseMenu.addItem(
                           name : _nameController.text,
                           imageUrl: _imageController.text,
                           desc: _descController.text,

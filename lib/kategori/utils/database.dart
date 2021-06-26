@@ -6,7 +6,7 @@ final CollectionReference _mainCollection = _firestore.collection('Menu');
 
 
 
-class DatabaseKategori {
+class DatabaseMenu {
   static String userUid;
 
   static Future<void> addItem({

@@ -40,6 +40,7 @@ class AddScreen extends StatelessWidget {
             child: AddItemForm(
               nameFocusNode: _nameFocusNode,
               imageFocusNode: _imageFocusNode,
+              descFocusNode: _descFocusNode,
               ratingFocusNode: _ratingFocusNode,
               nofratingFocusNode: _nofratingFocusNode,
             ),

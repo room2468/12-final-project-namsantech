@@ -3,14 +3,20 @@ import 'package:final_project/kategori/utils/database.dart';
 import 'package:final_project/kategori/widgets/edit_item_form.dart';
 
 class EditScreen extends StatefulWidget {
-  final String currentKode;
-  final String currentKategori;
+  final String currentname;
+  final String currentimageurl;
+  final String currentdesc;
+  final String currentrating;
+  final String currentnumberofRating;
   final String documentId;
 
   EditScreen({
-    this.currentKode,
-    this.currentKategori,
-    this.documentId,
+    this.documentId, 
+    this.currentname, 
+    this.currentimageurl,
+    this.currentdesc,
+    this.currentrating,
+    this.currentnumberofRating
   });
 
   @override
@@ -18,9 +24,11 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
-  final FocusNode _kodeFocusNode = FocusNode();
-
-  final FocusNode _kategoriFocusNode = FocusNode();
+  final FocusNode _nameFocusNode = FocusNode();
+  final FocusNode _imageFocusNode = FocusNode();
+  final FocusNode _descFocusNode = FocusNode();
+  final FocusNode _ratingFocusNode = FocusNode();
+  final FocusNode _nofratingFocusNode = FocusNode();
 
   bool _isDeleting = false;
 
@@ -28,8 +36,11 @@ class _EditScreenState extends State<EditScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _kodeFocusNode.unfocus();
-        _kategoriFocusNode.unfocus();
+        _nameFocusNode.unfocus();
+        _imageFocusNode.unfocus();
+        _descFocusNode.unfocus();
+        _ratingFocusNode.unfocus();
+        _nofratingFocusNode.unfocus();
       },
       child: Scaffold(
         //backgroundColor: CustomColors.firebaseNavy,
@@ -64,7 +75,7 @@ class _EditScreenState extends State<EditScreen> {
                         _isDeleting = true;
                       });
 
-                      await DatabaseKategori.deleteItem(
+                      await DatabaseMenu.deleteItem(
                         docId: widget.documentId,
                       );
 
@@ -93,10 +104,16 @@ class _EditScreenState extends State<EditScreen> {
             ),
             child: EditItemForm(
               documentId: widget.documentId,
-              kodeFocusNode: _kodeFocusNode,
-              kategoriFocusNode: _kategoriFocusNode,
-              currentKode: widget.currentKode,
-              currentKategori: widget.currentKategori,
+              nameFocusNode: _nameFocusNode,
+              imageFocusNode: _imageFocusNode,
+              descFocusNode: _descFocusNode,
+              ratingFocusNode: _ratingFocusNode,
+              nofratingFocusNode: _nofratingFocusNode,
+              currentname: widget.currentname,
+              currentimageurl : widget.currentimageurl,
+              currentdesc: widget.currentdesc,
+              currentrating : widget.currentrating,
+              currentnumberofRating: widget.currentnumberofRating,
             ),
           ),
         ),
