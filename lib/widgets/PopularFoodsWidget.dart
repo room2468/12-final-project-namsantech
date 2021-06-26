@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:final_project/pages/FoodDetailsPage.dart';
+import 'package:final_project/animasi/ScaleRoute.dart';
 
 class PopularFoodsWidget extends StatefulWidget {
   @override
@@ -44,7 +46,9 @@ class PopularFoodTiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context, ScaleRoute(page: FoodDetailsPage()));
+      },
       child: Column(
         children: <Widget>[
           Container(
