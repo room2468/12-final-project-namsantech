@@ -1,16 +1,11 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:final_project/pages/LoginPage.dart';
-import 'package:final_project/pages/ViewResep.dart';
-import 'package:final_project/pages/maps.dart';
-import 'package:final_project/pages/profile_page.dart';
 import 'package:final_project/themes.dart';
 import 'package:final_project/utils/user_preferences.dart';
-import 'package:final_project/widgets/BottomNavBarWidget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:here_sdk/core.dart';
-import 'pages/heremap.dart';
 
 Future main() async {
   SdkContext.init(IsolateOrigin.main);

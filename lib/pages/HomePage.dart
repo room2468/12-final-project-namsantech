@@ -6,6 +6,7 @@ import 'package:final_project/widgets/BestFoodWidget.dart';
 import 'package:final_project/widgets/PopularFoodsWidget.dart';
 import 'package:final_project/widgets/SearchWidget.dart';
 import 'package:final_project/widgets/TopMenus.dart';
+import 'package:final_project/kategori/screens/add_screen.dart';
 
 class HomePage extends StatefulWidget {
   final User user;
@@ -39,6 +40,22 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(context, ScaleRoute(page: SignInPage()));
               })
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.yellow,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AddScreen(),
+            ),
+          );
+        },
+        //backgroundColor: CustomColors.firebaseOrange,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 35,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

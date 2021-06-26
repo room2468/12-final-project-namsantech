@@ -20,15 +20,15 @@ class AddScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Name'),
-          backgroundColor: Colors.teal[500],
+          title: Text('Name', style : TextStyle (fontWeight: FontWeight.bold)),
+          backgroundColor: Colors.yellow[600],
         ),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
-              colors: [Colors.teal[600], Colors.teal[200]],
+              colors: [Colors.yellow[200], Colors.white],
             ),
           ),
           child: Padding(

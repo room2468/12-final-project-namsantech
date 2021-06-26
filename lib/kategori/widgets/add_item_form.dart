@@ -36,7 +36,7 @@ class _AddItemFormState extends State<AddItemForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _addItemFormKey,
-      child: Column(
+      child: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.only(bottom: 24.0),
@@ -149,7 +149,7 @@ class _AddItemFormState extends State<AddItemForm> {
               : Container(
                   width: double.maxFinite,
                   child: RaisedButton(
-                    color: Colors.teal[600],
+                    color: Colors.yellow[600],
                     textColor: Theme.of(context).primaryColorLight,
                     onPressed: () async {
                       widget.nameFocusNode.unfocus();
@@ -184,7 +184,8 @@ class _AddItemFormState extends State<AddItemForm> {
                       child: Text(
                         'ADD ITEM',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                           // color: CustomColors.firebaseGrey,
                           letterSpacing: 2,

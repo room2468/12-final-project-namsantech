@@ -10,8 +10,6 @@
 // allowed.
 //
 
-import 'dart:collection';
-import 'package:collection/collection.dart';
 import 'package:here_sdk/src/sdk/core/geo_coordinates.dart';
 
 /// Describes a location in the world at a given time.
