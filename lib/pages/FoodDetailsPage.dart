@@ -44,7 +44,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                 semanticContainer: true,
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 child: Image.asset(
-                  'assets/images/bestfood/' + 'ic_best_food_8' + ".jpeg",
+                  'assets/images/bestfood/' + 'ic_best_food_1' + ".jpeg",
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(3.0),
@@ -61,9 +61,9 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
               ),*/
 
               FoodTitleWidget(
-                  productName: "Grilled Salmon",
-                  productPrice: "\$96.00",
-                  productHost: "pizza hut"),
+                  productName: "Telur Goreng",
+                  productPrice: "Rp. 15.000",
+                  productHost: "Telur"),
               SizedBox(
                 height: 15,
               ),
@@ -270,7 +270,7 @@ class DetailContentMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Text(
-        'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero\'s De Finibus Bonorum et Malorum for use in a type specimen book.',
+        'Kocok telur hingga berbuih halus. /n Tambahkan daun bawang, tepung beras, merica dan garam. /n Kocok hingga benar-benar rata. /n Panaskan minyak banyak dalam wajan besi atau aluminium yang cekung hingga panas benar. Jika ingin rasa lebih gurih bisa saja dipakai minyak jelantah bersih. Sebaiknya gunakan wajan cekung agar bentuk dadar bundar dan tebal.Tuangkan sebagian telur kocok, dengan mengangkat wadah agak tinggi agar bisa terbentuk renda di keliling telur. Masak hingga kecokelatan dan keriting pinggirnya.Balikkan telur dan masak hingga kedua sisinya kuning kecokelatan. Angkat dan tiriskan.',
         style: TextStyle(
             fontSize: 14.0,
             color: Colors.black87,
