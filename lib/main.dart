@@ -1,5 +1,4 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
-import 'package:final_project/kategori/screens/edit_screen.dart';
 import 'package:final_project/pages/LoginPage.dart';
 import 'package:final_project/themes.dart';
 import 'package:final_project/utils/user_preferences.dart';
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeProvider.of(context),
           title: title,
-          home: EditScreen(),
+          home: SignInPage(),
         ),
       ),
     );
